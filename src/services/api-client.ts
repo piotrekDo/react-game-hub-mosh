@@ -1,5 +1,5 @@
 import axios from 'axios';
-import create from './http-client'
+import create from './http-client';
 
 const apiClient = axios.create({
   baseURL: 'https://api.rawg.io/api',
@@ -8,9 +8,18 @@ const apiClient = axios.create({
   },
 });
 
+export interface Platform {
+  id: number;
+  name: string;
+  slug: string;
+}
+
 export interface Game {
   id: number;
   name: string;
+  background_image: string;
+  parent_platforms: { platform: Platform }[];
+  metacritic: number;
 }
 
 export interface FetchGamesResponse {
@@ -20,4 +29,4 @@ export interface FetchGamesResponse {
   results: Game[];
 }
 
-export default create<FetchGamesResponse>(apiClient, '/games')
+export default create<FetchGamesResponse>(apiClient, '/games');
