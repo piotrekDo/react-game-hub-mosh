@@ -8,11 +8,12 @@ import { Genre } from '../hooks/useGenres';
 interface Props{
   selectedGenre: Genre | null,
   selectedPlatform: Platform | null,
-  selectedOrder: string
+  selectedOrder: string,
+  searchText: string
 }
 
-export const GameGrid = ({selectedGenre, selectedPlatform, selectedOrder}: Props) => {
-  const { data, error, isLoading, setData, setError, setLoading } = useGames(selectedGenre, selectedPlatform, selectedOrder);
+export const GameGrid = ({selectedGenre, selectedPlatform, selectedOrder, searchText}: Props) => {
+  const { data, error, isLoading, setData, setError, setLoading } = useGames(selectedGenre, selectedPlatform, selectedOrder, searchText);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   if (error) return <Text>{error}</Text>;
