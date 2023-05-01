@@ -22,7 +22,7 @@ export const GameGrid = ({selectedGenre, selectedPlatform, selectedOrder, search
     <SimpleGrid
       columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
       padding="10px"
-      spacing={3}
+      spacing={6}
     >
       {isLoading &&
         skeletons.map((skeleton) => (
