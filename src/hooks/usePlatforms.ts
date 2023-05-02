@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import APIClient from '../services/apiClient';
 
-interface Platform {
+export interface Platform {
     id: number,
     name: string,
     slug: string
