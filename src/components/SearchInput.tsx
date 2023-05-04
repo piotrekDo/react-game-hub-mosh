@@ -2,19 +2,17 @@ import { Button, Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
 import { useRef, useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { TiDelete } from 'react-icons/ti';
+import useGameQueryStore from '../store';
 
-interface Props {
-  onSearch: (searchText: string) => void;
-}
-
-export const SearchInput = ({ onSearch }: Props) => {
+export const SearchInput = () => {
+  const setSearchText = useGameQueryStore(s => s.setSearchText);
   const [typing, setTyping] = useState<boolean>(false);
   const ref = useRef<HTMLInputElement>(null);
 
   const submit = (event: any) => {
     event.preventDefault();
     if (ref.current) {
-      onSearch(ref.current.value);
+      setSearchText(ref.current.value);
     }
   };
 
